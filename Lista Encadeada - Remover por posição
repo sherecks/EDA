@@ -1,0 +1,21 @@
+int remover_pos(Lista *p, void *info, int pos){
+  //Validação!!!
+  if( lista_vazia(*p))
+    return ERRO_LISTA_VAZIA;
+  if(pos < 0 || pos > p->qtd)
+    return ERRO_POS_INVALIDA;
+  if(pos == 0)
+    return remove_inicio(p, info);
+
+  //Alocar -> Percorrer -> Inserir!!!
+  Elemento *aux = p->cabeca;
+  int cont;
+  for(cont = 0; cont < pos-1;cont++) //Percorre a Lista!!!
+    aux = aux->proximo;
+  Elemento *x = aux->proximo;
+  aux->proximo = x->proximo; //Conecta o elemento anterior ao proximo do que será excluido!!!
+  memcpy(info, x->info, p->taminfo); //Copia a informação e retira da lista!!!
+  free(x->info);
+  free(x);
+  p->qtd--;
+}
