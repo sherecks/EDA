@@ -1,8 +1,8 @@
 int leitura_pos(){
   //Validação!!!
-  if( lista_vazia(*p))
+  if( lista_vazia(l))
     return ERRO_LISTA_VAZIA;
-  if(pos < 0 || pos > p->qtd)
+  if(pos < 0 || pos > l.qtd)
     return ERRO_POS_INVALIDA;
 
   //Alocar -> Percorrer -> Copiar!!!
