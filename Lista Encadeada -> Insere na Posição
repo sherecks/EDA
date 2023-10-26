@@ -1,0 +1,19 @@
+int insere_pos ( Lista *p, void *info, int pos) {
+  //Validação!!!
+  if(pos < 0 || pos > p->qtd)
+    return ERRO_POS_INVALIDA;
+  if(pos == 0)
+    return insere_inicio(p, info);
+  //Alocar -> Percorrer -> Inserir!!!
+  Elemento *aux = p->cabeca;
+  int cont;
+  for(cont = 0; cont < pos-1;cont++) //Percorre a Lista!!!
+    aux = aux->proximo;
+  Elemento *novo - aloca_elemento(info, p->taminfo);
+  if(novo == NULL)
+    return 0;
+  novo->proximo = aux->proximo; //Conecta o novo elemento ao proximo elemento!!!
+  aux->proximo = novo; //Conecta o elemento a Lista, aux está um elemento antes!!!
+  p->qtd++;
+  return 1;
+}
