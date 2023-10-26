@@ -1,0 +1,15 @@
+int leitura_pos(){
+  //Validação!!!
+  if( lista_vazia(*p))
+    return ERRO_LISTA_VAZIA;
+  if(pos < 0 || pos > p->qtd)
+    return ERRO_POS_INVALIDA;
+
+  //Alocar -> Percorrer -> Copiar!!!
+  Elemento *aux = p->cabeca;
+  int cont;
+  for(cont = 0;cont < pos;cont++) //Percorre a Lista!!!
+    aux = aux->proximo;
+  memcpy(aux->info, info, l.tamInfo); //Copia a informação para a posição escolhida!!!
+  return 1;
+{
