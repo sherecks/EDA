@@ -1,3 +1,54 @@
+1)
+void concatena( Lista *l1, Lista *l2 ){
+	Elemento *aux = l1->cabeca;
+	if( aux != NULL){
+		while( aux->proximo != NULL){
+			aux = aux->proximo;
+		}
+		aux->proximo = l2->cabeca;
+	}else{
+		l1->cabeca = l2->cabeca;
+	}
+	l2->cabeca = NULL;
+	l1->qtd += l2->qtd;
+	l2->qtd = 0;	
+}
+
+2)
+int busca(lista l, void *info, (int (*comp), (void*), (void*))){
+	elemnto *aux = l.cabeça;
+	int cont = 0;
+
+	while(aux != NULL){
+		if(comp(info, aux->info){
+			return cont;
+		}
+		cont++;
+	}
+	return -1;
+}
+
+3)
+Lista busca2.0(lista l, void *info, (int (*comp), (void*), (void*)) ){
+	elemento *aux = l.cabeça;
+	int cont = 0;
+
+	Lista indices;
+	inicializa_lista(&indices, sizeof(int));
+
+	while(aux != NULL){
+		if(comp(info, aux->info)){
+			insere_fim(&indices, &cont);
+		}
+		cont++;
+		aux = aux->proximo;
+	}
+	return indices;
+}
+
+
+
+5)
 a)void mostra_invertido(Lista l, void (*mostra)(void*)){
 	if(lista_vazia(l))
 		printf("Lista vazia!/n);
